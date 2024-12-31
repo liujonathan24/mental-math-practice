@@ -98,8 +98,17 @@ class MathMode:
                 matrix1_lines = matrix1_str.split('\n')
                 matrix2_lines = matrix2_str.split('\n')
                 
+                # Calculate the maximum number of lines needed
+                max_lines = max(len(matrix1_lines), len(matrix2_lines))
+                
+                # Pad the shorter matrix with empty lines if needed
+                while len(matrix1_lines) < max_lines:
+                    matrix1_lines.append(" " * len(matrix1_lines[0]))
+                while len(matrix2_lines) < max_lines:
+                    matrix2_lines.append(" " * len(matrix2_lines[0]))
+                
                 question = "Multiply matrices:\n"
-                for i in range(len(matrix1_lines)):
+                for i in range(max_lines):
                     question += f"{matrix1_lines[i]}    ×    {matrix2_lines[i]}\n"
 
             return {
@@ -108,7 +117,7 @@ class MathMode:
                 "mode_type": self.mode_type,
                 "dimensions": {
                     "rows": rows,
-                    "cols": cols if self.operation == '+' else cols
+                    "cols": cols
                 }
             }
 
