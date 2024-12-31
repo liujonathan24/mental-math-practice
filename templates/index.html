@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Math Practice</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Mental Math Practice</h1>
+        
+        <div class="mode-selector">
+            <label for="mode">Select Mode:</label>
+            <select id="mode"></select>
+            <div id="digits-container" style="display: none; margin-top: 1rem;">
+                <label for="digits">Select Digits:</label>
+                <select id="digits"></select>
+            </div>
+            <div id="difficulty-container" style="display: none; margin-top: 1rem;">
+                <label for="difficulty">Select Difficulty:</label>
+                <select id="difficulty"></select>
+            </div>
+        </div>
+
+        <div class="game-container">
+            <div class="question-container" style="display: none;">
+                <pre id="question" class="question-text"></pre>
+                <input type="number" id="answer" placeholder="Enter your answer" disabled>
+                <div class="button-container">
+                    <button id="submit" disabled>Submit</button>
+                    <button id="next" style="display: none;">Next</button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="stat-label">Score</span>
+                    <span id="score">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Streak</span>
+                    <span id="streak">0</span>
+                </div>
+                <div class="stat-box">
+                    <span class="stat-label">Time</span>
+                    <span id="timer">0s</span>
+                </div>
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

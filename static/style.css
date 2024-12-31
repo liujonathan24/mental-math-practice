@@ -1,0 +1,186 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+}
+
+.mode-selector {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: white;
+    margin-left: 1rem;
+}
+
+.game-container {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.question-container {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.question-text {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+    font-family: 'Courier New', monospace;
+    white-space: pre;
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 1rem;
+    line-height: 1.5;
+}
+
+input[type="number"] {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+    margin-right: 1rem;
+    width: 150px;
+}
+
+.matrix-input {
+    display: grid;
+    gap: 0.5rem;
+    margin: 2rem auto;
+    max-width: 400px;
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-input input {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.matrix-input input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.matrix-input input::placeholder {
+    color: #95a5a6;
+    opacity: 0.7;
+}
+
+.button-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.button-container button {
+    min-width: 100px;
+}
+
+button {
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+button#next {
+    background-color: #27ae60;
+}
+
+button#next:hover {
+    background-color: #219a52;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.stat-box {
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 100px;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.feedback {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    min-height: 2rem;
+}
+
+.feedback.correct {
+    color: #27ae60;
+}
+
+.feedback.incorrect {
+    color: #e74c3c;
+}
