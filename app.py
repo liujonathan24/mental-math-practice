@@ -45,6 +45,9 @@ class MathMode:
                 result.append("⎢" + row.ljust(max_width) + "⎥")
         return "\n".join(result)
 
+    def format_vector(self, vector):
+        return ", ".join(str(val) for val in vector)
+
     def generate_question(self):
         if self.mode_type == 'scalar':
             num1 = random.randint(self.min_val, self.max_val)
@@ -56,7 +59,16 @@ class MathMode:
                 answer = num1 * num2
                 question = f"{num1} × {num2}"
             return {"question": question, "answer": answer, "mode_type": self.mode_type}
-        else:  # matrix
+        elif self.mode_type == 'vector':  # dot product
+            # Select random matrix size based on difficulty
+            rows, cols = random.choice(self.matrix_sizes)
+            vector1 = self.generate_matrix(rows, cols)
+            vector2 = self.generate_matrix(rows, cols)
+            answer = sum(vector1[i][j] * vector2[i][j] for i in range(rows) for j in range(cols))
+            question = f"Dot product of vectors:\n{self.format_vector(vector1)}\n * \n{self.format_vector(vector2)}"
+            return {"question": question, "answer": answer, "mode_type": self.mode_type}
+
+        elif self.mode_type == 'matrix':  # matrix
             if not self.matrix_sizes:
                 raise ValueError("Matrix sizes not specified")
                 
@@ -125,7 +137,11 @@ class MathMode:
 MATRIX_SIZES = {
     'easy': [(2, 2)],
     'medium': [(2, 2), (2, 3), (3, 2)],
-    'hard': [(2, 3), (3, 2), (3, 3)]
+    'hard': [(2, 3), (3, 2), (3, 3)],
+
+    'easy_vector': [(1,2), (1,3), (1,4)],
+    'med_vector': [(1,5), (1,6), (1,7)],
+    'hard_vector': [(1,8), (1,9), (1,10)],
 }
 
 # Define available modes
@@ -160,6 +176,14 @@ MODES = {
             'easy': MathMode('Easy Matrix Multiplication', 0, 5, '*', 'matrix', MATRIX_SIZES['easy'], 'easy'),
             'medium': MathMode('Medium Matrix Multiplication', -5, 5, '*', 'matrix', MATRIX_SIZES['medium'], 'medium'),
             'hard': MathMode('Hard Matrix Multiplication', -10, 10, '*', 'matrix', MATRIX_SIZES['hard'], 'hard')
+        }
+    },
+    'vector_dot_product': {
+        'name': 'Vector Dot Product',
+        'difficulties': {
+            'easy': MathMode('Easy Vector Dot Product', -5, 5, '*', 'vector', MATRIX_SIZES['easy_vector'], 'easy'),
+            'medium': MathMode('Medium Vector Dot Product', -10, 10, '*', 'vector', MATRIX_SIZES['med_vector'], 'medium'),
+            'hard': MathMode('Hard Vector Dot Product', -20, 20, '*', 'vector', MATRIX_SIZES['hard_vector'], 'hard')
         }
     }
 }
@@ -217,4 +241,4 @@ def get_question(mode_id, setting):
     return jsonify(mode.generate_question())
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000)
