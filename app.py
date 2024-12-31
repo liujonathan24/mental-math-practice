@@ -133,17 +133,17 @@ MODES = {
     'scalar_addition': {
         'name': 'Scalar Addition',
         'digits': {
-            '1': MathMode('1-digit Addition', 0, 9, '+'),
-            '2': MathMode('2-digit Addition', 10, 99, '+'),
-            '3': MathMode('3-digit Addition', 100, 999, '+')
+            '1': MathMode('1-digit Addition', -9, 9, '+'),
+            '2': MathMode('2-digit Addition', -99, 99, '+'),
+            '3': MathMode('3-digit Addition', -999, 999, '+')
         }
     },
     'scalar_multiplication': {
         'name': 'Scalar Multiplication',
         'digits': {
-            '1': MathMode('1-digit Multiplication', 0, 9, '*'),
-            '2': MathMode('2-digit Multiplication', 10, 99, '*'),
-            '3': MathMode('3-digit Multiplication', 100, 999, '*')
+            '1': MathMode('1-digit Multiplication', -9, 9, '*'),
+            '2': MathMode('2-digit Multiplication', -99, 99, '*'),
+            '3': MathMode('3-digit Multiplication', -999, 999, '*')
         }
     },
     'matrix_addition': {
