@@ -68,11 +68,11 @@ h2 {
 }
 
 input[type="number"] {
+    margin: 0 auto;
     padding: 0.5rem 1rem;
     font-size: 1.2rem;
     border-radius: 8px;
     border: 2px solid #ddd;
-    margin-right: 1rem;
     width: 150px;
 }
 
