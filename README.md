@@ -7,11 +7,11 @@ An interactive web application for practicing mental math skills with various mo
 - Multiple practice modes:
   - 1-3 digit Addition and Multiplication
   - Matrix Addition and Multiplication
+  - Vector Dot product
 - Score tracking
 - Streak counter
 - Timer for each question
 - Immediate feedback
-- Modern, responsive design
 
 ## Installation
 
