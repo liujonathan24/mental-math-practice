@@ -1,6 +1,6 @@
 # Mental Math Practice
 
-An interactive web application for practicing mental math with various modes of operation. Currently hosted here: mental-math-practice.vercel.app
+An interactive web application for practicing mental math with various modes of operation. Currently hosted here: [mental-math-practice.vercel.app](https://mental-math-practice.vercel.app/)
 
 ## Features
 
